@@ -11,6 +11,9 @@ import TableList from './Components/Table-List/TaBleS';
 
 import MapTable from './Components/Maps/AMap';
 
+import SimpleSalesChart from './Components/ChartTable/Charttable';
+import CardsCollection from './Components/Cards/Hcard';
+
 
 const App = () => {
 console.log(import.meta.env.VITE_APPWRITE_URL);
@@ -29,8 +32,8 @@ console.log(import.meta.env.VITE_APPWRITE_URL);
             <Route path="/users" element={<UserListDemo />} /> 
             <Route path="/table" element={<TableList/>} />
             <Route path="/map" element={<MapTable />} />
-            {/* <Route path="/chart-table" element={<ChartTable />} /> */}
-
+            <Route path="/chart-table" element={<SimpleSalesChart />} />
+            <Route path="/card" element={<CardsCollection />} />
 
 
 
