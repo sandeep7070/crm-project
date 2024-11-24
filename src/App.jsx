@@ -3,10 +3,12 @@ import SideLayout from './Components/SideHeader';
 import Dashboard from './Components/dashboard/Dashboard';
 import  Calendar  from './Components/Calender/Calender';
 import ProductGrid from './Components/Ecommerce/ecommerce';
-import UsersListComponent from './Components/User/UserList';
 import ChatInterface from './Components/chats/chat';
-import DataTable from './Components/Table-List/Table';
-import { Table } from './Components/Table-List/Table';
+
+import UserListDemo from './Components/User/User';
+
+import Utabale from './Components/Table-List/Utabale';
+import LMap from './Components/Maps/LMap';
 
 const App = () => {
 console.log(import.meta.env.VITE_APPWRITE_URL);
@@ -22,8 +24,10 @@ console.log(import.meta.env.VITE_APPWRITE_URL);
             <Route path="/calendar" element={<Calendar />} />
             <Route path="/Chat" element={<ChatInterface />} />
             <Route path="/ecommerce" element={<ProductGrid />} />
-            <Route path="/userList" element={<UsersListComponent />} />
-            <Route path="/Tablelist" element={<Table/>} />
+            <Route path="/users" element={<UserListDemo />} /> 
+<Route path="/utable" element={<Utabale/>} />
+<Route path="/map" element={<LMap/>} />
+
 
 
             </Routes>
