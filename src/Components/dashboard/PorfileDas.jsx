@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, CardHeader, CardContent}  from '@mui/material'
 
-import { User, Mail, Phone, MapPin, Briefcase, Calendar, Settings, ChevronRight } from 'lucide-react';
+import {  Mail, Phone, MapPin, Briefcase, Calendar, Settings, ChevronRight } from 'lucide-react';
 
 const DashboardProfile = () => {
   const userProfile = {
