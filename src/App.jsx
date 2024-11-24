@@ -4,7 +4,7 @@ import Dashboard from './Components/dashboard/Dashboard';
 import  Calendar  from './Components/Calender/Calender';
 // import ChatInterface from './Components/chat/Chat';
 import ProductGrid from './Components/Ecommerce/ecommerce';
-import ChatInterface from './Components/chat/chat';
+import ChatInterface from './Components/chats/chat';
 import UsersListComponent from './Components/User/UserList';
 
 const App = () => {

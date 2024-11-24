@@ -76,7 +76,7 @@ const SideLayout = () => {
                     : 'text-slate-400 hover:bg-[#2c4366] hover:text-white'}
                   ${isSidebarCollapsed ? 'justify-center' : 'justify-start'}
                 `}
-              > 
+              >    
                 <item.icon className="w-6 h-6" />
                 {!isSidebarCollapsed && 
                   <span className="text-sm font-medium">{item.name}</span>
