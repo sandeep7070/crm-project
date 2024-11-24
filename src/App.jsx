@@ -5,6 +5,7 @@ import  Calendar  from './Components/Calender/Calender';
 import ProductGrid from './Components/Ecommerce/ecommerce';
 import UsersListComponent from './Components/User/UserList';
 import ChatInterface from './Components/chats/chat';
+import DataTable from './Components/Table-List/Table';
 
 const App = () => {
 console.log(import.meta.env.VITE_APPWRITE_URL);
@@ -20,7 +21,9 @@ console.log(import.meta.env.VITE_APPWRITE_URL);
             <Route path="/calendar" element={<Calendar />} />
             <Route path="/Chat" element={<ChatInterface />} />
             <Route path="/ecommerce" element={<ProductGrid />} />
-            <Route path="/user" element={<UsersListComponent />} />
+            <Route path="/userList" element={<UsersListComponent />} />
+            <Route path="/Tablelist" element={<DataTable />} />
+
 
             </Routes>
           
