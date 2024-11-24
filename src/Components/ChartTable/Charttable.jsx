@@ -12,9 +12,9 @@ const SimpleSalesChart = () => {
   ];
 
   return (
-    <div className="p-4 border rounded-lg">
-      <h2 className="text-lg font-bold mb-4">Sales Chart</h2>
-      <div className="h-64">
+    <div className="p-4 border rounded-lg bg-[#182638]">
+      <h2 className="text-lg font-bold mb-4 text-white">Sales Chart</h2>
+      <div className="h-64 text-white">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart data={data}>
             <XAxis dataKey="month" />
@@ -25,19 +25,19 @@ const SimpleSalesChart = () => {
         </ResponsiveContainer>
       </div>
       
-      <div className="mt-4 overflow-x-auto">
-        <table className="w-full">
+      <div className="mt-4 overflow-x-auto bg-[#2c4366] text-white">
+        <table className="w-full ">
           <thead>
             <tr>
-              <th className="text-left p-2">Month</th>
-              <th className="text-right p-2">Sales</th>
+              <th className="text-left p-2 text-white">Month</th>
+              <th className="text-right p-2 text-white">Sales</th>
             </tr>
           </thead>
           <tbody>
             {data.map(item => (
               <tr key={item.month}>
-                <td className="p-2">{item.month}</td>
-                <td className="text-right p-2">{item.sales}</td>
+                <td className="p-2 text-white">{item.month}</td>
+                <td className="text-right p-2 text-white">{item.sales}</td>
               </tr>
             ))}
           </tbody>
