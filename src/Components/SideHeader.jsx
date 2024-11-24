@@ -25,10 +25,10 @@ const navigationItems = [
   { id: '/chat', name: 'Chats', icon: IoIosChatboxes },
   { id: '/ecommerce', name: 'Ecommerce', icon: ShoppingCart },
   { id: '/users', name: 'User List', icon: Users },
-  { id: '/tables', name: 'Tables', icon: Table },
-  { id: '/maps', name: 'Maps', icon: Map },
-  { id: '/chart-tables', name: 'Chart Tables', icon: LineChart },
-  { id: '/cards', name: 'Cards', icon: CreditCard },
+  { id: '/table', name: 'Table', icon: Table },
+  { id: '/map', name: 'Map', icon: Map },
+  { id: '/chart-table', name: 'Chart Table', icon: LineChart },
+  { id: '/card', name: 'Card', icon: CreditCard },
   { id: '/logout', name: 'Logout', icon: LogOut }
 ];
 
