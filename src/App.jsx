@@ -7,8 +7,10 @@ import ChatInterface from './Components/chats/chat';
 
 import UserListDemo from './Components/User/User';
 
-import Utabale from './Components/Table-List/Utabale';
-import LMap from './Components/Maps/LMap';
+import TableList from './Components/Table-List/TaBleS';
+
+import MapTable from './Components/Maps/AMap';
+
 
 const App = () => {
 console.log(import.meta.env.VITE_APPWRITE_URL);
@@ -25,8 +27,10 @@ console.log(import.meta.env.VITE_APPWRITE_URL);
             <Route path="/Chat" element={<ChatInterface />} />
             <Route path="/ecommerce" element={<ProductGrid />} />
             <Route path="/users" element={<UserListDemo />} /> 
-<Route path="/utable" element={<Utabale/>} />
-<Route path="/map" element={<LMap/>} />
+            <Route path="/table" element={<TableList/>} />
+            <Route path="/map" element={<MapTable />} />
+            {/* <Route path="/chart-table" element={<ChartTable />} /> */}
+
 
 
 
