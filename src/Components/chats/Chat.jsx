@@ -42,6 +42,8 @@ const ChatInterface = () => {
     }
   };
 
+
+  
   return (
     <Card className="w-full bg-[#182638] max-w-2xl mx-auto min-w-full h-[600px] flex flex-col">
       {/* Chat Messages Area */}
