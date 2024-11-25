@@ -24,7 +24,7 @@ const SimpleSalesChart = () => {
           </BarChart>
         </ResponsiveContainer>
       </div>
-      
+                                          
       <div className="mt-4 overflow-x-auto bg-[#2c4366] text-white">
         <table className="w-full ">
           <thead>

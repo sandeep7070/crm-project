@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { UserPlus, Trash2, Edit, Mail, User, Search } from 'lucide-react';
-
+import axios from 'axios';
 const UserListDemo = () => {
   const [users, setUsers] = useState([
     { id: 1, name: 'sandeep', email: 'hlo@gmail.com' },
@@ -8,6 +8,26 @@ const UserListDemo = () => {
   ]);
 
   const [newUser, setNewUser] = useState({ name: '', email: '' });
+
+
+  useEffect(() => {
+    const fetchUsers = async () => {
+      
+      try {
+        const response = await axios.get('https://api.freeapi.app/api/v1/public/randomjokes');
+        console.log("response", response)
+        setUsers(response.data);
+        
+      } catch (error) {
+        console.error('Error fetching users:', error);
+      }
+    };
+    
+    fetchUsers();
+  }, []);
+
+
+
 
   const addUser = () => {
     if (newUser.name && newUser.email) {

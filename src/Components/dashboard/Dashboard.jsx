@@ -72,8 +72,9 @@ const Dashboard = () => {
             </div>
           </div>
         ))}
-      </div>
 
+      </div>
+      
       <div className="bg-[#2c4366] rounded-xl p-6 shadow-lg">
         <h2 className="text-xl font-semibold mb-4 text-white">Sales Performance</h2>
         <div className="w-full h-[400px]">
@@ -90,7 +91,6 @@ const Dashboard = () => {
               <Line type="monotone" dataKey="sales" stroke="#8B5CF6" strokeWidth={3} />
             </LineChart>
           </ResponsiveContainer>
-        
         </div>
       </div>
       <OrderStuts/>

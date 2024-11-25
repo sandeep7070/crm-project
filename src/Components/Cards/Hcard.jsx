@@ -19,9 +19,8 @@ const CardsCollection = () => {
       description: "A card with interactive elements and shadow effects.",
       image: "/api/placeholder/300/200",
       tag: "Interactive"
-    }
+    } 
   ];
-
   return (
     <div className="p-8  min-h-screen bg-[#182638] ">
       <div className="max-w-6xl mx-auto">

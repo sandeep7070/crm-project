@@ -35,7 +35,7 @@ const DashboardProfile = () => {
     <div className="text-center">
       <p className="text-2xl font-bold text-white">{value}</p>
       <p className="text-sm text-white mt-1">{label}</p>
-    </div>
+    </div> 
   );
 
   return (
