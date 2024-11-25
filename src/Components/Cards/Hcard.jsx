@@ -5,7 +5,7 @@ const CardsCollection = () => {
     {
       title: "Basic Card",
       description: "A simple card with basic information and styling.",
-      image: "/api/placeholder/300/200",
+      image: '/hiibeg.webp',
       tag: "Basic"
     },
     {
