@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { IoIosChatboxes } from "react-icons/io";
 
+
 import { 
   ChevronRight, 
   ChevronLeft,
@@ -21,9 +22,10 @@ import {
 
 const navigationItems = [
   { id: '/', name: 'Dashboard', icon: LayoutDashboard },
+  { id: '/ecommerce', name: 'Ecommerce', icon: ShoppingCart },
+
   { id: '/calendar', name: 'Calendar', icon: Calendar },
   { id: '/chat', name: 'Chats', icon: IoIosChatboxes },
-  { id: '/ecommerce', name: 'Ecommerce', icon: ShoppingCart },
   { id: '/users', name: 'User List', icon: Users },
   { id: '/table', name: 'Table', icon: Table },
   { id: '/map', name: 'Map', icon: Map },

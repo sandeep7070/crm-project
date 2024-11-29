@@ -14,22 +14,26 @@ import MapTable from './Components/Maps/AMap.jsx';
 import SimpleSalesChart from './Components/ChartTable/Charttable.jsx';
 import CardsCollection from './Components/Cards/Hcard.jsx';
 import Slogout from './Components/Logout/Slogout.jsx';
+import AuthPage from './Components/Login-page/loginPage.jsx';
 
 
 const App = () => {
 console.log(import.meta.env.VITE_APPWRITE_URL);
 
   return (
+
     <Router>
+         <AuthPage/>
       <div className="flex min-h-screen">
         <SideLayout />
         {/* Your main content/routes go here */}
         <main className="flex-1">
         <Routes>
             <Route path="/" element={<Dashboard />} />
+            <Route path="/ecommerce" element={<ProductGrid />} />
+
             <Route path="/calendar" element={<Calendar />} />
             <Route path="/Chat" element={<ChatInterface />} />
-            <Route path="/ecommerce" element={<ProductGrid />} />
             <Route path="/users" element={<UserListDemo />} /> 
             <Route path="/table" element={<TableList/>} />
             <Route path="/map" element={<MapTable />} />
