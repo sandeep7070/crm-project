@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const AuthPage = () => {
+const AuthPage = ({ onLoginSuccess }) => {
   const [isLogin, setIsLogin] = useState(true);
   const [email, setEmail] = useState('');
   const [username, setUsername] = useState('');
@@ -10,7 +10,6 @@ const AuthPage = () => {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
-  //  submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
@@ -18,7 +17,6 @@ const AuthPage = () => {
 
     try {
       if (isLogin) {
-       
         const response = await axios.post("http://localhost:3000/api/v1/users/login", {
           email,
           password
@@ -28,8 +26,13 @@ const AuthPage = () => {
         
         localStorage.setItem('token', response.data.token);
         
-       
-        alert('Login Successful!');
+        if (onLoginSuccess) {
+          onLoginSuccess();
+        }
+
+        // window.location.href = '/';
+
+        // alert('Login Successful!');
       } else {
         if (password !== confirmPassword) {
           setError('Passwords do not match!');
@@ -70,7 +73,6 @@ const AuthPage = () => {
   };
 
   useEffect(() => {
-    // Fetch users if token exists (optional)
     const token = localStorage.getItem('token');
     if (token) {
       fetchUsers();
@@ -88,7 +90,6 @@ const AuthPage = () => {
             {isLogin ? 'Login' : 'Register'}
           </h2>
 
-          {/* Error Message */}
           {error && (
             <div className="mb-4 text-red-500 text-center">
               {error}
@@ -194,7 +195,6 @@ const AuthPage = () => {
               onClick={() => {
                 setIsLogin(!isLogin);
                 setError(''); 
-                // Reset form when switching modes
                 setEmail('');
                 setUsername('');
                 setPassword('');
@@ -206,7 +206,6 @@ const AuthPage = () => {
                 ? 'Need an account? Register' 
                 : 'Already have an account? Login'}
             </button>
-          
           </div>
         </form>
       </div>
