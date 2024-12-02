@@ -15,16 +15,17 @@ const ProductDetails = () => {
     setError(null);
 
     try {
-      const response = await axios.get("http://localhost:3000/api/v1/users/getAllproduct");
+      const response = await axios.get("http://localhost:3000/api/v1/product/getAllproduct");
       
-      console.log("My data avall", response.data);
-      
+      console.log("My data avall", response);
+         
+
       if (response.data && Array.isArray(response.data.products)) {
         const uniqueProducts = response.data.products.filter(
           (product, index, self) => 
             index === self.findIndex((p) => p.name === product.name)
         );
-        
+
         setProducts(uniqueProducts);
       } else {
         setError('No products found');
@@ -100,7 +101,7 @@ const ProductDetails = () => {
 
               <div className="relative aspect-square overflow-hidden bg-[#2c4366]">
                 <img
-                  src={product.imageUrl || '/placeholder-image.png'}
+                  src={product.coverImage || '/placeholder-image.png'}
                   alt={product.name}
                   className="object-cover w-full h-full transform group-hover:scale-110 transition-transform duration-500"
                 />
@@ -148,8 +149,8 @@ const ProductDetails = () => {
     </div>
   );
 };
-
 export default ProductDetails;
+
 
 
 

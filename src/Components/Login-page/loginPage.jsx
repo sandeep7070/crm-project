@@ -30,9 +30,7 @@ const AuthPage = ({ onLoginSuccess }) => {
           onLoginSuccess();
         }
 
-        // window.location.href = '/';
-
-        // alert('Login Successful!');
+      
       } else {
         if (password !== confirmPassword) {
           setError('Passwords do not match!');
@@ -48,7 +46,7 @@ const AuthPage = ({ onLoginSuccess }) => {
         console.log('Registration successful:', response.data);
         
         setIsLogin(true);
-        alert('Registration Successful! Please Login.');
+        // alert('Registration Successful! Please Login.');
       }
     } catch (err) {
       setError(err.response?.data?.message || 'An error occurred');
