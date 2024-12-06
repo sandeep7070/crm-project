@@ -9,23 +9,26 @@ const TableList = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
+                  
   
+                                    
   useEffect(() => {
     const fetchUsers = async () => {
       setLoading(true);
       setError(null);
       try {
         const response = await axios.get("http://localhost:3000/api/v1/users/getAllUsers");
-        
-        console.log("Full response:", response);
-
+                                         
+                                         
+                                         
+        console.log("Full response:", response);                         
         const usersData = response.data?.users || response.data || [];
-        // Ensure unique users and clean data
+        // Ensure unique users and clean data             
         const uniqueUsers = usersData.filter(
           (user, index, self) => 
             index === self.findIndex((u) => u.email === user.email)
         );
-
+             
         setUsers(uniqueUsers);
       } catch (err) {
         setError('problem fetching users');

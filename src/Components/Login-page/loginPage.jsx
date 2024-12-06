@@ -17,7 +17,7 @@ const AuthPage = ({ onLoginSuccess }) => {
 
     try {
       if (isLogin) {
-        const response = await axios.post("http://localhost:3000/api/v1/users/login", {
+        const response = await axios.post("https://render.com/docs/web-services#port-binding", {
           email,
           password
         });
@@ -38,7 +38,7 @@ const AuthPage = ({ onLoginSuccess }) => {
           return;
         }
 
-        const response = await axios.post("http://localhost:3000/api/v1/users/register", {
+        const response = await axios.post("https://render.com/docs/web-services#port-binding", {
           email,
           username,
           password
