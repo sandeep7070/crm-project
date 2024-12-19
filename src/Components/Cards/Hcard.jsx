@@ -1,4 +1,5 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect } from 'react';
 
 const CardsCollection = () => {
   const cards = [
@@ -21,6 +22,24 @@ const CardsCollection = () => {
       tag: "Interactive"
     } 
   ];
+
+useEffect(() => {
+ const feachCard = async () => {
+
+
+  try {
+    const response = await axios.get('')
+  } catch (error) {
+    
+  }
+ }
+})
+
+
+
+
+
+
   return (
     <div className="p-8  min-h-screen bg-[#182638] ">
       <div className="max-w-6xl mx-auto">

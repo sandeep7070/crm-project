@@ -1,18 +1,35 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ChevronUp, ChevronDown } from 'lucide-react';
 
 const DataTable = () => {
-  // Sample data - replace with your actual data
-  const initialData = [
-    { id: 1, name: "John Doe", age: 28, city: "New York", role: "Developer" },
-    { id: 2, name: "Jane Smith", age: 32, city: "San Francisco", role: "Designer" },
-    { id: 3, name: "Bob Johnson", age: 45, city: "Chicago", role: "Manager" },
-    { id: 4, name: "Alice Brown", age: 26, city: "Boston", role: "Developer" },
-    { id: 5, name: "Charlie Wilson", age: 38, city: "Seattle", role: "Analyst" }
-  ];
-
-  const [data, setData] = useState(initialData);
+  const [users, setUsers] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
   const [sortConfig, setSortConfig] = useState({ key: null, direction: 'ascending' });
+
+  useEffect(() => {
+    const fetchUsers = async () => {
+      setLoading(true);
+      setError(null);
+      try {
+        const response = await fetch("http://localhost:3000/api/v1/users/getAllUsers");
+        const data = await response.json();
+        const usersData = data?.users || [];
+        const uniqueUsers = usersData.filter(
+          (user, index, self) => 
+            index === self.findIndex((u) => u.id === user.id)
+        );
+        setUsers(uniqueUsers);
+      } catch (err) {
+        setError('Problem fetching users');
+        console.error('Problem fetching users:', err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchUsers();
+  }, []);
 
   const sortData = (key) => {
     let direction = 'ascending';
@@ -20,13 +37,13 @@ const DataTable = () => {
       direction = 'descending';
     }
 
-    const sortedData = [...data].sort((a, b) => {
+    const sortedData = [...users].sort((a, b) => {
       if (a[key] < b[key]) return direction === 'ascending' ? -1 : 1;
       if (a[key] > b[key]) return direction === 'ascending' ? 1 : -1;
       return 0;
     });
 
-    setData(sortedData);
+    setUsers(sortedData);
     setSortConfig({ key, direction });
   };
 
@@ -39,17 +56,31 @@ const DataTable = () => {
       <ChevronDown className="w-4 h-4" />;
   };
 
+  if (loading) {
+    return <div className="w-full p-4 text-center text-white">Loading...</div>;
+  }
+
+  if (error) {
+    return <div className="w-full p-4 text-center text-red-500">{error}</div>;
+  }
+
+  if (!users.length) {
+    return <div className="w-full p-4 text-center text-white">No users found</div>;
+  }
+
+  const columns = ['id', 'username', 'email'];
+
   return (
-    <div className="w-full  mx-auto p-4 bg-[#182638] h-full ">
-      <div className="bg-[#2c4366] shadow-md rounded-lg overflow-hidden">
+    <div className="w-full mx-auto p-4 bg-gray-900">
+      <div className="bg-gray-800 shadow-md rounded-lg overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full table-auto">
-            <thead className="">
+            <thead>
               <tr>
-                {Object.keys(initialData[0]).map((column) => (
+                {columns.map((column) => (
                   <th 
                     key={column}
-                    className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider cursor-pointer hover:bg-slate-500"
+                    className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider cursor-pointer hover:bg-gray-700"
                     onClick={() => sortData(column)}
                   >
                     <div className="flex items-center space-x-1">
@@ -60,18 +91,18 @@ const DataTable = () => {
                 ))}
               </tr>
             </thead>
-            <tbody className="bg-[#2c4366] divide-y divide-slate-500  text-white  ">
-              {data.map((row) => (
+            <tbody className="bg-gray-800 divide-y divide-gray-700">
+              {users.map((user) => (
                 <tr 
-                  key={row.id}
-                  className="hover:bg-slate-500 transition-colors"
+                  key={user.id}
+                  className="hover:bg-gray-700 transition-colors"
                 >
-                  {Object.values(row).map((cell, index) => (
+                  {columns.map((column) => (
                     <td 
-                      key={index}
+                      key={`${user.id}-${column}`}
                       className="px-6 py-4 whitespace-nowrap text-sm text-white"
                     >
-                      {cell}
+                      {user[column]}
                     </td>
                   ))}
                 </tr>

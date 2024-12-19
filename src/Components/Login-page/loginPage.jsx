@@ -17,13 +17,14 @@ const AuthPage = ({ onLoginSuccess }) => {
 
     try {
       if (isLogin) {
-        const response = await axios.post("https://render.com/docs/web-services#port-binding", {
+        const response = await axios.post("http://localhost:3000/api/v1/users/login", {
           email,
           password
         });
 
         console.log('Login successful:', response.data);
-        
+                // alert('  seccful Please Login.');
+
         localStorage.setItem('token', response.data.token);
         
         if (onLoginSuccess) {
@@ -38,7 +39,7 @@ const AuthPage = ({ onLoginSuccess }) => {
           return;
         }
 
-        const response = await axios.post("https://render.com/docs/web-services#port-binding", {
+        const response = await axios.post("http://localhost:3000/api/v1/users/register", {
           email,
           username,
           password

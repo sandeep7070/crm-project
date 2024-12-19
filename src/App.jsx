@@ -12,8 +12,11 @@ import SimpleSalesChart from './Components/ChartTable/Charttable.jsx';
 import CardsCollection from './Components/Cards/Hcard.jsx';
 import Slogout from './Components/Logout/Slogout.jsx';
 import AuthPage from './Components/Login-page/loginPage.jsx';
+import ProductDetails from './Components/Ecommerce/iphoneProduct/iphoneDetails.jsx';
 
 const App = () => {
+
+
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   const handleLogin = () => {
@@ -21,9 +24,11 @@ const App = () => {
   };
 
   return (
+
     <Router>
       <Routes>
         {!isAuthenticated ? (
+          
           <Route 
             path="/" 
             element={<AuthPage onLoginSuccess={handleLogin} />} 
@@ -47,14 +52,16 @@ const App = () => {
           <Route path="/card" element={<CardsCollection />} />
           <Route path="/logout" element={<Slogout/>} />
         </Routes>
-   
+        
                 </main>
               </div>
             } 
           />
         )}
+        {/* <ProductDetails/>    */}
       </Routes>
     </Router>
+    
   );
 };
 
